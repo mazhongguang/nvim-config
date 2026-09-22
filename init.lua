@@ -1,5 +1,4 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
---vim.g.mapleader = " "
 -- 定义快捷键的前缀，即<Leader>
 vim.g.mapleader = ";"
 
@@ -10,3 +9,6 @@ vim.cmd([[
   set colorcolumn=120
   highlight ColorColumn ctermbg=darkgray guibg=#3a3a3a
 ]])
+
+-- Neovim default updatetime is 4000
+vim.opt.updatetime = 200

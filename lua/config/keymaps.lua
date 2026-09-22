@@ -37,27 +37,14 @@ map("n", "<Leader>kw", "<C-W>k", { desc = "Switch to up window" })
 map("n", "<Leader>jw", "<C-W>j", { desc = "Switch to down window" })
 
 -- 编译
-map("n", "<F7>", "<cmd>!make -j<CR>", { desc = "Compile with output" })
+map("n", "<F7>", "<cmd>terminal make -j<CR>", { desc = "Compile with output" })
 -- 下载
-map("n", "<F8>", "<cmd>!make flash<CR>", { desc = "Make and download with output" })
+map("n", "<F8>", "<cmd>terminal make flash<CR>", { desc = "Make and download with output" })
 
 -- Diagnostic keymaps
 map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- 
-local function switch_c_h()
-    local filename = vim.fn.expand('%:t')
-    local basename = vim.fn.expand('%:r')
-    local ext = vim.fn.expand('%:e')
+-- 跳转到定义处
+map('n', '<leader>jd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
 
-    if ext == 'c' then
-        vim.cmd('edit ' .. basename .. '.h')
-    elseif ext == 'h' then
-        vim.cmd('edit ' .. basename .. '.c')
-    else
-        print('Not a .c or .h file')
-    end
-end
 
--- C/H file switching
-map('n', '<leader>sw', switch_c_h, { noremap = true, silent = true })

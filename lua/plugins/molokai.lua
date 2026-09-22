@@ -7,10 +7,4 @@ return
             vim.cmd("colorscheme molokai")
         end,
     },
---[[     {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "molokai",
-        },
-    } ]]
 }

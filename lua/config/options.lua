@@ -7,9 +7,12 @@ vim.o.encoding = "utf-8"
 -- 设置文件编码猜测顺序
 vim.o.fileencodings = "ucs-bom,utf-8,gb2312,default"
 -- 禁用全局自动格式化
-vim.g.autoformat = false
+vim.g.autoformat = true
 
---[[ -- 设置颜色主题 
-vim.o.background = "dark"
-vim.o.termguicolors = true
-vim.cmd('colorscheme molokai') ]]
+vim.opt.makeprg = "make" -- 或 "ninja -C build" 等
+
+vim.g.root_spec = {
+    ".git", -- 优先识别.git目录
+    "lua", -- 其次识别lua目录
+    "cwd" -- 最后回退到当前工作目录
+}
